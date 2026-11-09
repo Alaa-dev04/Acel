@@ -64,12 +64,12 @@ const Header = () => {
                         </button>
                     </div>
                     {/* the contact icons  */}
-                    <div className="flex items-center gap-8 ">
-                        <div className="flex items-center gap-1">
-                            <span className="text-[#FAFAFA] text-sm ">تواصل معنا</span>
+                    <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1 shrink-0 ">
+                            <span className="text-[#FAFAFA] text-sm  ">تواصل معنا</span>
                             <Image src="/whatsapp.svg" alt="whatsapp" width={20} height={20} />
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 shrink-0 ">
                             <span className="text-[#FAFAFA]">19666</span>
                             <Phone className="h-5 w-5 text-[#FAFAFA]" />
                         </div>
