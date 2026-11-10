@@ -1,5 +1,7 @@
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import ContactSection from "@/components/shared/ContactSection";
+
 export default function Home() {
   return (
     <>
@@ -7,6 +9,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         agfdfd
       </main>
+      <ContactSection />
       <Footer />
     </>
   );

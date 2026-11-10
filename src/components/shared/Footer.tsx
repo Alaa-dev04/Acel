@@ -17,7 +17,7 @@ const SOCIALS = [
 const headding = "text-black text-xl font-semibold  ";
 const Footer = () => {
     return (
-        <div className="mx-auto text-sm font-semibold grid grid-cols-1 items-start justify-between gap-8  px-5 py-8 text-[#6D96F2] md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 md:px-8 lg:px-12 " dir="rtl">
+        <div className="mx-auto text-sm my-12 font-semibold grid grid-cols-1 items-start justify-between gap-8  px-5 py-8 text-[#6D96F2] md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 md:px-8 lg:px-12 mx-5 " dir="rtl">
             {/* asel section  */}
             <section className="flex flex-col gap-3">
                 <h1 className={headding}>أسيل</h1>
@@ -31,7 +31,7 @@ const Footer = () => {
                 <ul className="flex flex-col gap-2">
                     {
                         QUICK_LINKS.map((link)=>(
-                            <li className="decoration-0 hover:underline ">
+                            <li key={link.href} className="decoration-0 hover:underline ">
                                 {link.name}
                             </li>
                         ))
