@@ -4,6 +4,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Phone, Menu, X } from "lucide-react";
 import Image from "next/image";
+import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -28,7 +29,7 @@ const Header = () => {
       dir="rtl"
     >
       {/* Main  */}
-      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between gap-6 bg-black px-4 md:px-8 lg:px-12">
+      <div className="mx-auto flex h-20  items-center justify-between gap-6 bg-black px-4 md:px-8 lg:px-12">
 
         {/* Logo  */}
         <div className="flex items-center gap-10 lg:gap-14">
@@ -94,12 +95,7 @@ const Header = () => {
                   تواصل معنا
                 </span>
 
-                <Image
-                  src="/whatsapp.svg"
-                  alt="whatsapp"
-                  width={20}
-                  height={20}
-                />
+                <FaWhatsapp  className="h-5 w-5 text-[#FAFAFA]" />
               </div>
             </Link>
 
@@ -195,12 +191,7 @@ const Header = () => {
                 <div className="flex items-center gap-2">
                   <span>تواصل معنا</span>
 
-                  <Image
-                    src="/whatsapp.svg"
-                    alt="whatsapp"
-                    width={20}
-                    height={20}
-                  />
+                  <FaWhatsapp  className="h-5 w-5 text-[#FAFAFA]" />
                 </div>
               </Link>
 
