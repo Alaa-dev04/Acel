@@ -29,7 +29,7 @@ const Header = () => {
       dir="rtl"
     >
       {/* Main  */}
-      <div className="mx-auto flex h-20  items-center justify-between gap-6 bg-black px-4 md:px-8 lg:px-12">
+      <div className="mx-auto flex h-20  items-center justify-between gap-6 bg-transparent px-4 md:px-8 lg:px-12">
 
         {/* Logo  */}
         <div className="flex items-center gap-10 lg:gap-14">
@@ -145,7 +145,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-x-0 top-20 bg-black p-6 lg:hidden"
+            className="absolute inset-x-0 top-20 bg-black/50 rounded-2xl m-3 p-6 lg:hidden"
           >
             {/* Navigation Links */}
             <nav className="flex flex-col gap-5">
