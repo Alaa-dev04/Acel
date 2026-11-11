@@ -21,7 +21,7 @@ const selection = [
 const ContactForm = () => {
   const { register, onSubmit, control, formState: { errors, isSubmitting } } = useConttactForm();
   return (
-    <div className="" dir="rtl">
+    <div className="">
       <form onSubmit={onSubmit}>
         <FieldGroup className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Field>

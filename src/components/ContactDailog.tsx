@@ -29,7 +29,7 @@ const ContactDailog = ({ isOpen, onClose }: ContactDialogProps) => {
     }, [isOpen, onClose]);
 
     return (
-        <AnimatePresence>
+        <>
             {isOpen && (
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -59,7 +59,7 @@ const ContactDailog = ({ isOpen, onClose }: ContactDialogProps) => {
                     </motion.div>
                 </motion.div>
             )}
-        </AnimatePresence>
+        </>
     );
 };
 

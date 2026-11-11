@@ -6,14 +6,12 @@ const Hero = () => {
   return (
     <div
       className="relative h-screen max-h-[842px] mt-1 overflow-hidden"
-      dir="rtl"
     >
       <div className="absolute inset-x-3 inset-y-0 overflow-hidden rounded-[32px]">
         <Image
           src="/hero.jpg"
           alt="Hero Image"
           fill
-          priority
           className="object-cover"
         />
         {/* Gradient overlay */}
