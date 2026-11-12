@@ -1,7 +1,4 @@
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
-import ContactSection from "@/components/shared/ContactSection";
-import FloatingContact from "@/components/shared/FloatingContact";
+
 import Hero from "@/components/Hero";
 import CarsoulGllary from "@/components/CarsoulGllary";
 import FiltrationBar from "@/components/FiltrationBar";
@@ -12,8 +9,8 @@ import Discover from "@/components/Discover";
 export default function Home() {
   return (
     <>
-      <Header />
-      <FloatingContact />
+     
+      
       <Hero />
       <div className="m-4">
         <FiltrationBar />
@@ -29,8 +26,7 @@ export default function Home() {
         </div>
       </div>
       <Discover/>
-      <ContactSection />
-      <Footer />
+      
     </>
   );
 }

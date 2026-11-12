@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono , IBM_Plex_Sans_Arabic} from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
+import ContactSection from "@/components/shared/ContactSection";
+import FloatingContact from "@/components/shared/FloatingContact";
 import Providers from "@/components/providers";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,9 +36,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col ">
         <Providers>
+          <Header />
+          <FloatingContact />
           {children}
+          <ContactSection />
+          <Footer />
         </Providers>
-
       </body>
     </html>
   );
