@@ -12,7 +12,7 @@ import { useState } from "react";
 const Links = [
   { name: "الرئيسية", href: "/" },
   { name: "المشروعات", href: "/projects" },
-  { name: "المواقع", href: "/sites" },
+  { name: "المواقع", href: "/locations" },
   { name: "من نحن", href: "/about" },
 ];
 

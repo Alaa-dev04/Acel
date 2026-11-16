@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ComparisonCustomHandleDemo } from "@/components/shared/Comarison";
-
+import AiForm from "@/components/AiForm";
 const page = () => {
   return (
     <div>
@@ -28,10 +28,11 @@ const page = () => {
         </div>
       </div>
       <div className="mt-7 grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2">
-        <div></div>
+        <div><AiForm/></div>
         <div>
           <ComparisonCustomHandleDemo />
         </div>
+
       </div>
     </div>
   );

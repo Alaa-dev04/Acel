@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AIbedShema, type AIFormValues } from "@/shema/ai-shema";
 
-export const useConttactForm = () => {
+export const useAIForm = () => {
   const form = useForm<AIFormValues>({
     resolver: zodResolver(AIbedShema ),
     defaultValues: {

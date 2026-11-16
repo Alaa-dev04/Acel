@@ -4,9 +4,8 @@ import {
   ComparisonHandle,
   ComparisonItem,
 } from "@/components/ui/comparison";
-import { CircleSmall } from "lucide-react";
 export const ComparisonCustomHandleDemo = () => (
-  <div className="flex flex-col justify-center items-center gap-5">
+  <div className="flex flex-col h-full p-6 justify-center items-center gap-5 ">
     <Comparison className="aspect-video  rounded-xl" defaultValue={35}>
       <ComparisonItem position="start">
         <img
