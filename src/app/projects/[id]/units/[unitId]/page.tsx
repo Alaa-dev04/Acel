@@ -6,6 +6,8 @@ import Image from "next/image";
 import { BedDouble, Bath, LandPlot } from "lucide-react";
 import Gallary from "@/components/shared/Gallary";
 import Card from "@/components/shared/Card";
+import Link from "next/link";
+import Servse from "@/components/Servse";
 const page = () => {
   const { id, unitId } = useParams<{ id: string; unitId: string }>();
   const unit = getUnit(id, unitId);
@@ -104,12 +106,14 @@ const page = () => {
             {project.units
               .map((u) => (
                 <div key={u.id}>
-                  <Card
-                    city={u.location}
-                    img={u.image}
-                    status={u.status}
-                    location={u.location}
-                  />
+                  <Link href={`/projects/${project.id}/units/${u.id}`}>
+                    <Card
+                      city={u.location}
+                      img={u.image}
+                      status={u.status}
+                      location={u.location}
+                    />
+                  </Link>
                 </div>
               ))
               .slice(0, 3)}
@@ -122,17 +126,7 @@ const page = () => {
           <p className="text-xl text-[#6F6F6F]">
             مشروعات عصرية لحياة أكثر رفاهية
           </p>
-          <div className="flex gap-5 flex-wrap lg:flex-nowrap">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className=" flex">
-                <img
-                  src="/hos.png"
-                  alt="servesis"
-                  className=" object-contain rounded-2xl m-3 "
-                />
-              </div>
-            ))}
-          </div>
+             <Servse/>
         </div>
       </div>
     </div>

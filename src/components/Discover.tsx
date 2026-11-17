@@ -25,7 +25,7 @@ const Discover = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-wrap lg:flex-nowrap  justify-center gap-7 ">
+        <div className=" grid grid-cols-2 md:grid-cols-4  gap-7 ">
           {locations.map((img) => (
             <motion.div
               key={img.id}

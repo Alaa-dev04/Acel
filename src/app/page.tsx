@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import CarsoulGllary from "@/components/CarsoulGllary";
-import FiltrationBar from "@/components/FiltrationBar";
+
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import Discover from "@/components/Discover";
@@ -20,7 +20,6 @@ export default function Home() {
     <>
       <Hero />
       <div className="m-4 flex flex-col gap-12">
-        <FiltrationBar />
         <CarsoulGllary />
         <div className="flex justify-center my-6">
           <Link

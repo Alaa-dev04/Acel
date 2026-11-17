@@ -7,6 +7,7 @@ import Gallary from "@/components/shared/Gallary";
 import FiltrationBar from "@/components/UnitFiltration";
 import Link from "next/link";
 import Card from "@/components/shared/Card";
+import Servse from "@/components/Servse";
 const headline = ["الموقع", "المساحة", "الوحدات"];
 const page = () => {
   const { id } = useParams<{ id: string }>();
@@ -98,10 +99,7 @@ const page = () => {
       <div className="flex flex-col gap-13 mx-6 my-15">
         <div className="flex flex-col gap-3">
           <p className="text-sm text-[#2563EB]">الموقع </p>
-          <h2 className="text-3xl font-semibold">
-            {" "}
-           {project.location}{" "}
-          </h2>
+          <h2 className="text-3xl font-semibold"> {project.location} </h2>
         </div>
         {/* the map */}
         <div className="flex flex-col  gap-13  ">
@@ -116,37 +114,33 @@ const page = () => {
 
         {/* the unit choosing */}
         <div className="flex flex-col gap-13">
-          <FiltrationBar/>
-            <div className=" grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3" >
-                {project.units.map((u)=>(<div  key={u.id}>
-                  <Card
-                    city={u.location}
-                    img={u.image}
-                    status={u.status}
-                    location={u.location}
-                    price={u.price}
-                  
-                  />
-                </div>)).slice(0,3)}
-              
-            </div>
+          <FiltrationBar />
+          <div className=" grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3">
+            {project.units
+              .map((u) => (
+                <div key={u.id}>
+                  <Link href={`/projects/${project.id}/units/${u.id}`}>
+                    <Card
+                      city={u.location}
+                      img={u.image}
+                      status={u.status}
+                      location={u.location}
+                      price={u.price}
+                    />
+                  </Link>
+                </div>
+              ))
+              .slice(0, 3)}
+          </div>
         </div>
-        
+
         {/* servises  */}
         <div className="flex  flex-col gap-5">
           <h2 className="text-4xl ">خدمات قريبة منك</h2>
-          <p className="text-xl text-[#6F6F6F]">مشروعات عصرية لحياة أكثر رفاهية</p>
-          <div className="flex gap-5 flex-wrap lg:flex-nowrap">
-            {Array.from({ length: 4}).map((_, index) => (
-              <div key={index} className=" flex">
-                <img
-                  src="/hos.png"
-                  alt="servesis"
-                  className=" object-contain rounded-2xl m-3 "
-                />
-              </div>
-            ))}
-          </div>
+          <p className="text-xl text-[#6F6F6F]">
+            مشروعات عصرية لحياة أكثر رفاهية
+          </p>
+            <Servse/>
         </div>
       </div>
     </div>

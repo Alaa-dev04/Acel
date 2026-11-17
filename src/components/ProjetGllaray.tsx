@@ -1,6 +1,6 @@
 // background: radial-gradient(shape position, color-stop, color-stop);
 const CORNER =
-  "z-10 h-4 w-4 ml-1 mb-1 self-end justify-self-start bg-[radial-gradient(circle_at_top_right,transparent_15px,white_16.5px)]";
+  "z-10 h-4 w-4 ml-[3px] mb-1 self-end justify-self-start bg-[radial-gradient(circle_at_top_right,transparent_15px,white_16px)] ";
 
 const ProjectGallery = () => {
   return (
@@ -24,16 +24,16 @@ const ProjectGallery = () => {
         />
       </div>
 
-      <div className="col-start-6 col-end-12 row-start-8 row-end-13 p-1 z-0">
+      <div className=" col-start-6 col-end-13 row-start-8 row-end-13 p-2 z-0">
         <img
           src="/small.png"
-          alt="Project landscape"
-          className="w-full h-full object-cover rounded-2xl"
+          alt="Project aerial view"
+          className=" w-full h-full object-cover rounded-2xl "
         />
       </div>
 
-      <div aria-hidden className={`col-start-4 row-start-3 ${CORNER}`} />
-      <div aria-hidden className={`col-start-6 row-start-7 ${CORNER}`} />
+      <div className={`col-start-4  row-start-3 ${CORNER}`} />
+      <div className={`col-start-6  row-start-7 ${CORNER}`} />
     </div>
   );
 };

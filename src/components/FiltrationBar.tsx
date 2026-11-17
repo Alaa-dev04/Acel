@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import {
   Select,
   SelectContent,
@@ -7,30 +7,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
 type FilterOption = {
   label: string;
-  value: string | null;
+  value: string;
 };
-
-const completionStatuses: FilterOption[] = [
-  { label: "Select completion status", value: null },
-  { label: "Completed", value: "completed" },
-  { label: "Under Construction", value: "under-construction" },
-  { label: "Upcoming", value: "upcoming" },
-  { label: "On Hold", value: "on-hold" },
-];
 const locations: FilterOption[] = [
-  { label: "Select a location", value: null },
-  { label: "New Cairo", value: "new-cairo" },
-  { label: "Sheikh Zayed", value: "sheikh-zayed" },
-  { label: "6th of October", value: "6th-of-october" },
-  { label: "New Administrative Capital", value: "new-capital" },
-  { label: "North Coast", value: "north-coast" },
-  { label: "Mansoura", value: "mansoura" },
+  { label: "كل المواقع", value: "all" },
+  { label: "المنصورة الجديدة", value: "المنصورة الجديدة" },
+  { label: "حي توريل", value: "حي توريل" },
+  { label: "شارع الجمهورية", value: "شارع الجمهورية" },
+  { label: "طلخا", value: "طلخا" },
 ];
 const projectTypes: FilterOption[] = [
-  { label: "Select project type", value: null },
+  { label: "  نوع المشروع", value: "all" },
   { label: "Residential", value: "residential" },
   { label: "Commercial", value: "commercial" },
   { label: "Administrative", value: "administrative" },
@@ -38,18 +27,45 @@ const projectTypes: FilterOption[] = [
   { label: "Mixed-Use", value: "mixed-use" },
   { label: "Coastal", value: "coastal" },
 ];
-const FiltrationBar = () => {
+
+type FiltrationBarProps = {
+  location: string;
+  status: string;
+  onLocationChange: (value: string) => void;
+  onStatusChange: (value: string) => void;
+};
+
+const completionStatuses: FilterOption[] = [
+  { label: "كل الحالات", value: "all" },
+  { label: "مكتمل", value: "مكتمل" },
+  { label: "قيد الإنشاء", value: "قيد الإنشاء" },
+  { label: "قريباً", value: "قريباً" },
+];
+const FiltrationBar = ({
+  location,
+  status,
+  onLocationChange,
+  onStatusChange,
+}: FiltrationBarProps) => {
   return (
     <div className="flex justify-between items-center my-4 flex-wrap">
-        {/* for the paragraf */}
-        <div className="">
-            <h1 className="text-4xl ">مشروعات مختارة</h1>
-            <p className="text-xl my-2 text-[#6F6F6F]">عناوين مدروسة بعناية في أرقى مناطق المنصورة</p>
-        </div>
+      {/* for the paragraf */}
+      <div className="">
+        <h1 className="text-4xl ">مشروعات مختارة</h1>
+        <p className="text-xl my-2 text-[#6F6F6F]">
+          عناوين مدروسة بعناية في أرقى مناطق المنصورة
+        </p>
+      </div>
       <div className="flex  gap-2 flex-wrap">
         {/* for the location  */}
         <div className="w-[164px]">
-          <Select items={locations}>
+          <Select
+            value={location}
+            onValueChange={(value) => {
+              if (value !== null) onLocationChange(value);
+            }}
+            items={locations}
+          >
             <SelectTrigger className="w-full  ">
               <SelectValue />
             </SelectTrigger>
@@ -65,7 +81,13 @@ const FiltrationBar = () => {
           </Select>
         </div>
         <div className="w-[164px]">
-          <Select items={completionStatuses}>
+          <Select
+            items={completionStatuses}
+            value={status}
+            onValueChange={(value) => {
+              if (value !== null) onStatusChange(value);
+            }}
+          >
             <SelectTrigger className="w-full  ">
               <SelectValue />
             </SelectTrigger>
@@ -81,7 +103,7 @@ const FiltrationBar = () => {
           </Select>
         </div>
         <div className="w-[164px]">
-          <Select items={projectTypes}>
+          <Select items={projectTypes} defaultValue="all">
             <SelectTrigger className="w-full  ">
               <SelectValue />
             </SelectTrigger>

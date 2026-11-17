@@ -12,71 +12,9 @@ const images = [
   "/post.png",
   "/post.png",
 ];
-const projects = [
-  {
-    id: 1,
-    status: "مكتمل",
-    location: "القاهرة الجديدة",
-    city: "التجمع الخامس",
-    img: "/post.png",
-  },
-  {
-    id: 2,
-    status: "تحت الإنشاء",
-    location: "الشيخ زايد",
-    city: "زايد الجديدة",
-    img: "/post.png",
-  },
-  {
-    id: 3,
-    status: "قريباً",
-    location: "العاصمة الإدارية",
-    city: "الحي السكني R7",
-    img: "/post.png",
-  },
-  {
-    id: 4,
-    status: "مكتمل",
-    location: "الساحل الشمالي",
-    city: "رأس الحكمة",
-    img: "/post.png",
-  },
-  {
-    id: 5,
-    status: "تحت الإنشاء",
-    location: "مدينة 6 أكتوبر",
-    city: "التوسعات الشمالية",
-    img: "/post.png",
-  },
-  {
-    id: 6,
-    status: "قريباً",
-    location: "القاهرة الجديدة",
-    city: "مدينة المستقبل",
-    img: "/post.png",
-  },
-  {
-    id: 7,
-    status: "مكتمل",
-    location: "المنصورة الجديدة",
-    city: "المنطقة الساحلية",
-    img: "/post.png",
-  },
-  {
-    id: 8,
-    status: "تحت الإنشاء",
-    location: "العين السخنة",
-    city: "الجلالة",
-    img: "/post.png",
-  },
-  {
-    id: 9,
-    status: "قريباً",
-    location: "الشيخ زايد",
-    city: "زايد هايتس",
-    img: "/post.png",
-  },
-];
+import { projects } from "@/data/projects";
+import Link from "next/link";
+import Servse from "@/components/Servse";
 const page = () => {
   const [area, setArea] = useQueryState(
     "area",
@@ -85,6 +23,9 @@ const page = () => {
   const selectedLocation = locations.find((location) => {
     return location.value === area;
   });
+ const selectedProjects = projects.filter((project) => {
+  return project.city === selectedLocation?.label;
+});
   return (
     <div className="overflow-hidden">
       <div className="relative h-screen max-h-[595px] mt-1 overflow-hidden">
@@ -155,15 +96,17 @@ const page = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   ">
-          {projects
+          {selectedProjects
             .map((project) => (
-              <Card
-                key={project.id}
+              <Link key={project.id} href={`/projects/${project.id}`}>
+               <Card
                 status={project.status}
                 location={project.location}
                 city={project.city}
-                img={project.img}
+                img={project.heroImage}
               />
+              </Link>
+             
             ))
             .slice(0, 3)}
         </div>
@@ -184,17 +127,7 @@ const page = () => {
           <p className="text-xl text-[#6F6F6F]">
             مشروعات عصرية لحياة أكثر رفاهية
           </p>
-          <div className="flex gap-5 flex-wrap lg:flex-nowrap">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className=" flex">
-                <img
-                  src="/hos.png"
-                  alt="servesis"
-                  className=" object-contain rounded-2xl m-3 "
-                />
-              </div>
-            ))}
-          </div>
+            <Servse/>
         </div>
     </div>
   );
