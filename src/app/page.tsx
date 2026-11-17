@@ -1,11 +1,12 @@
 import Hero from "@/components/Hero";
 import CarsoulGllary from "@/components/CarsoulGllary";
 import FiltrationBar from "@/components/FiltrationBar";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import Discover from "@/components/Discover";
 import { ComparisonCustomHandleDemo } from "@/components/shared/Comarison";
 import Split from "@/components/Split";
+import ProjectGallery from "@/components/ProjetGllaray";
 const projects = 
   {
     id: "garden-view",
@@ -18,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="m-4">
+      <div className="m-4 flex flex-col gap-12">
         <FiltrationBar />
         <CarsoulGllary />
         <div className="flex justify-center my-6">
@@ -34,7 +35,7 @@ export default function Home() {
       <Discover />
       <Split/> 
       {/* the finast projects  */}
-        <div className="grid grid-cols-1 md:grid-cols-2 p-6 lg:grid-cols-2 mb-15" >
+        <div className="grid grid-cols-1 md:grid-cols-2 p-6 lg:grid-cols-2 mb-15 gap-5" >
             <div className="flex flex-col gap-3 max-w-[519px] justify-center">
                 <p className="text-[#2563EB] text-sm ">
                   أحدث مشروعاتنا
@@ -54,6 +55,9 @@ export default function Home() {
                 </button>
               </div>
             </div>
+        <div>
+          <ProjectGallery/>
+        </div>
         </div>
       <div>
         <div className="flex justify-between items-center  flex-wrap p-6 ">

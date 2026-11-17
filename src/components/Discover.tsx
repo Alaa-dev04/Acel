@@ -1,30 +1,8 @@
+"use client";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import React from "react";
-import Image from "next/image";
-
-const Images = [
-  {
-    id: 1,
-    image: "/post.png",
-  },
-  {
-    id: 2,
-    image: "/post.png",
-  },
-  {
-    id: 3,
-    image: "/post.png",
-  },
-  {
-    id: 4,
-    image: "/post.png",
-  },
-  {
-    id: 5,
-    image: "/post.png",
-  },
-];
+import { locations } from "@/data/locations";
+import { motion } from "motion/react";
 const Discover = () => {
   return (
     <div className="p-6">
@@ -38,7 +16,7 @@ const Discover = () => {
         </div>
         <div className="flex justify-center my-6">
           <Link
-            href="/projects"
+            href="/locations"
             className="text-[#2563EB]  font-semibold flex items-center gap-2 hover:-translate-x-1.5 duration-75"
           >
             عرض جميع المواقع
@@ -48,13 +26,34 @@ const Discover = () => {
       </div>
       <div>
         <div className="flex flex-wrap lg:flex-nowrap  justify-center gap-7 ">
-          {Images.map((img) => (
-            <div
+          {locations.map((img) => (
+            <motion.div
               key={img.id}
-              className=" min-h-[350px]  rounded-2xl   "
+              initial="ymotion"
+              whileHover="hover"
+              className="group relative m-2 overflow-hidden rounded-2xl cursor-pointer"
             >
-              <img src={img.image} alt="Post" className="w-full h-full rounded-2xl"  />
-            </div>
+              <Link
+                href={`/locations?area=${img.value}`}
+                key={img.id}
+                className=" min-h-[350px]  rounded-2xl   "
+              >
+                <img
+                  src={img.image}
+                  alt="Post"
+                  className="w-full h-full rounded-2xl  transition-transform duration-300 group-hover:scale-110"
+                />
+                <motion.div
+                  variants={{ ymotion: { y: "100%" }, hover: { y: 0 } }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2563EB] to-transparent max-md:!transform-none"
+                >
+                  <div className="text-white absolute right-3 top-2">
+                    {img.label}
+                  </div>
+                </motion.div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

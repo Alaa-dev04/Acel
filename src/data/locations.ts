@@ -4,6 +4,7 @@ export type Location = {
   value: string;
   subtitle: string;
   title: string;
+  image:string;
   description: string;
   details: {
     id: number;
@@ -19,6 +20,7 @@ export const locations: Location[] = [
     value: "new-mansoura",
     subtitle: "من نحن",
     title: "لماذا المنصورة الجديدة؟",
+    image:"/loc1.png",
     description:
       "تعد مدينة المنصورة الجديدة من أهم المدن الساحلية الحديثة في مصر، حيث تجمع بين الموقع المتميز والتخطيط العمراني المتطور، وتوفر بيئة متكاملة للسكن والاستثمار بالقرب من أهم المدن والمناطق الحيوية.",
     details: [
@@ -50,6 +52,7 @@ export const locations: Location[] = [
     value: "touril",
     subtitle: "من نحن",
     title: "لماذا حي توريل؟",
+    image:"/loc2.jpg",
     description:
       "يتميز حي توريل بموقعه الحيوي داخل مدينة المنصورة، وقربه من المؤسسات التعليمية والخدمات والمناطق التجارية، مما يجعله من المناطق المميزة للسكن والاستثمار.",
     details: [
@@ -80,6 +83,7 @@ export const locations: Location[] = [
     label: "شارع الجمهورية",
     value: "gomhoria",
     subtitle: "من نحن",
+    image:"/loc4.jpg",
     title: "لماذا شارع الجمهورية؟",
     description:
       "يعد شارع الجمهورية من أهم الشوارع الحيوية بمدينة المنصورة، حيث يتميز بقربه من المؤسسات التعليمية والطبية والتجارية، ويوفر موقعا استراتيجيا لمختلف الأنشطة السكنية والاستثمارية.",
@@ -111,6 +115,7 @@ export const locations: Location[] = [
     label: "طلخا",
     value: "talakha",
     subtitle: "من نحن",
+    image:"/loc3.jpg",
     title: "لماذا مدينة طلخا؟",
     description:
       "تتميز مدينة طلخا بموقعها الجغرافي المميز على الضفة الغربية لنهر النيل، وقربها من مدينة المنصورة، مع توافر العديد من الخدمات والمرافق التي تجعلها منطقة مناسبة للسكن والاستثمار.",

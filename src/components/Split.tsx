@@ -28,7 +28,7 @@ const Split = () => {
   );
   const contentopacity = useTransform(progress, [0.2, 0.4], [0, 1]);
   return (
-    <div ref={ref} className=" h-[200vh]">
+    <div ref={ref} className=" h-[200vh] mt-12">
       <div className="sticky top-0 h-screen overflow-hidden bg-white">
         <motion.div
           className="absolute inset-0 z-0 flex flex-col justify-center items-center gap-3 md:gap-8 px-[30%] md:px-0"

@@ -27,7 +27,7 @@ const Hero = () => {
             نضع بين يديك مجموعة مختارة من المشروعات السكنية والتجارية في المنصورة، لنساعدك على اختيار المساحة التي تلائم تطلعاتك وتواكب أسلوب حياتك
           </p>
           <button className="bg-[#2563EB] min-w-[302px]  rounded-[8px] mt-2">
-            <Link href="#" className="transition-transform duration-300 hover:translate-x-2  flex gap-2 justify-center items-center text-white p-3">
+            <Link href="/projects" className="transition-transform duration-300 hover:translate-x-2  flex gap-2 justify-center items-center text-white p-3">
               <p>اكتشف مشروعاتنا</p>
 
               <MoveLeft size={20} />
