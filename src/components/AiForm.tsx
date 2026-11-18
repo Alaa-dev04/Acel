@@ -1,22 +1,32 @@
-
 "use client";
 
 import { Upload, Camera, Sparkles, Download } from "lucide-react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useAIForm } from "@/hooks/useAiForm";
+import { ChangeEvent } from "react";
 
 const AiForm = () => {
   const {
     onSubmit,
     register,
     formState: { errors },
+    setValue,
   } = useAIForm();
+  // hadling function for the images
+  // const HandleImage =(e:ChangeEvent<HTMLInputElement>)=>{
+  //   const file = e.target.files?.[0];
+  //   if (!file) return;
+  //   const dt = new DataTransfer();
+  //   dt.items.add(file);
+  //   setValue("Image",dt.files ,{shouldDirty:true, shouldValidate:true})
+  //     // allow taking the same photo again later
+  //    e.target.value = "";
 
+  // }
   return (
     <div className="w-full p-6">
       <form onSubmit={onSubmit} className="flex flex-col gap-8">
-
         {/* 01 - Room Image */}
         <section className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
@@ -25,7 +35,6 @@ const AiForm = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
             {/* Upload Image */}
             <label className=" flex  items-center justify-center gap-3 border-2  border-[#2563EB] rounded-lg p-4 cursor-pointer hover:bg-blue-50 transition">
               <Input
@@ -45,7 +54,15 @@ const AiForm = () => {
                 accept="image/*"
                 capture="environment"
                 className=" hidden"
-                {...register("Image")}
+                onChange={(e) => {
+                  const files = e.target.files;
+
+                  if (!files) return;
+
+                  setValue("Image", files, {
+                    shouldValidate: true,
+                  });
+                }}
               />
               <span className="text-[#2563EB]">التقاط صورة</span>
               <Camera size={24} className="text-[#2563EB]" />
@@ -53,9 +70,7 @@ const AiForm = () => {
           </div>
 
           {errors.Image && (
-            <p className="text-sm text-red-500">
-              {errors.Image.message }
-            </p>
+            <p className="text-sm text-red-500">{errors.Image.message}</p>
           )}
         </section>
 
@@ -63,9 +78,7 @@ const AiForm = () => {
         <section className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <p className="text-[#2563EB] text-sm">02</p>
-            <h2 className="text-2xl font-semibold">
-              صف الأثاث والطراز
-            </h2>
+            <h2 className="text-2xl font-semibold">صف الأثاث والطراز</h2>
           </div>
 
           <Textarea
@@ -75,9 +88,7 @@ const AiForm = () => {
           />
 
           {errors.Description && (
-            <p className="text-sm text-red-500">
-              {errors.Description.message}
-            </p>
+            <p className="text-sm text-red-500">{errors.Description.message}</p>
           )}
         </section>
 
@@ -94,14 +105,10 @@ const AiForm = () => {
           />
 
           {errors.phone && (
-            <p className="text-sm text-red-500">
-              {errors.phone.message}
-            </p>
+            <p className="text-sm text-red-500">{errors.phone.message}</p>
           )}
 
-          <p className="text-xs text-[#9F9F9F]">
-            ليتواصل معك أحد ممثلينا
-          </p>
+          <p className="text-xs text-[#9F9F9F]">ليتواصل معك أحد ممثلينا</p>
         </section>
 
         {/* Buttons */}
@@ -122,7 +129,6 @@ const AiForm = () => {
             <Download size={18} />
           </button>
         </section>
-
       </form>
     </div>
   );
