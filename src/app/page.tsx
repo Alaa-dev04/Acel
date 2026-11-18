@@ -1,69 +1,84 @@
-import Image from "next/image";
+import Hero from "@/components/Hero";
+import CarsoulGllary from "@/components/CarsoulGllary";
 
+import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
+import Discover from "@/components/Discover";
+import { ComparisonCustomHandleDemo } from "@/components/shared/Comarison";
+import Split from "@/components/Split";
+import ProjectGallery from "@/components/ProjetGllaray";
+const projects = 
+  {
+    id: "garden-view",
+    name: "جاردن ڤيو",
+    description:
+      "اكتشف أول مجمع سكني مميز من أسيل مخصص للفيلات المستقلة في شرق المنصورة، بموقع استراتيجي على شارع توريل، حيث يجتمع التصميم العصري مع الخصوصية والراحة لتجربة سكنية استثنائية",
+  }
+;
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Hero />
+      <div className="m-4 flex flex-col gap-12">
+        <CarsoulGllary />
+        <div className="flex justify-center my-6">
+          <Link
+            href="/projects"
+            className="text-[#2563EB]  font-semibold flex items-center gap-2 hover:-translate-x-1.5 duration-75"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            عرض جميع المشروعات
+            <ChevronLeft />
+          </Link>
         </div>
-      </main>
-    </div>
+      </div>
+      <Discover />
+      <Split/> 
+      {/* the finast projects  */}
+        <div className="grid grid-cols-1 md:grid-cols-2 p-6 lg:grid-cols-2 mb-15 gap-5" >
+            <div className="flex flex-col gap-3 max-w-[519px] justify-center">
+                <p className="text-[#2563EB] text-sm ">
+                  أحدث مشروعاتنا
+                </p>
+                <h3 className="font-bold text-4xl ">
+                  {projects.name}
+                </h3>
+                <p className="text-[#6F6F6F]">
+                  {projects.description}
+                </p>
+              <div className="flex gap-3 ">
+                <button className="rounded-lg cursor-pointer text-white bg-[#2563EB] w-[302px] h-[44px] flex items-center justify-center ">
+                 احجز الان< ChevronLeft/>
+                </button>
+                <button className="px-7 cursor-pointer text-[#2563EB] rounded-lg border border-[#2563EB] ">
+                  اعرف المزيد
+                </button>
+              </div>
+            </div>
+        <div>
+          <ProjectGallery/>
+        </div>
+        </div>
+      <div>
+        <div className="flex justify-between items-center  flex-wrap p-6 ">
+          <div className="">
+            <h1 className="text-4xl ">  تخيّل مساحتك قبل أن تسكنها</h1>
+            <p className="text-xl my-2 text-[#6F6F6F]">
+              {" "}ارفع صورة لغرفتك، واختر الطراز والألوان، ودع استوديو التصميم الذكي يقترح عليك تصورًا جديدًا
+            </p>
+          </div>
+          <div className="flex justify-center my-6">
+            <Link
+              href="/ai"
+              className="bg-[#2563EB] py-3 px-6 rounded-xl text-white font-semibold flex items-center gap-2 hover:scale-105 duration-75"
+            >
+              جرب الان
+              <ChevronLeft />
+            </Link>
+          </div>
+        </div>
+       
+        <ComparisonCustomHandleDemo />
+      </div>
+    </>
   );
 }
