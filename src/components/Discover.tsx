@@ -31,17 +31,17 @@ const Discover = () => {
               key={img.id}
               initial="ymotion"
               whileHover="hover"
-              className="group relative m-2 overflow-hidden rounded-2xl cursor-pointer"
+              className="group relative min-h-[200px] md:min-h-[350px] m-2 overflow-hidden rounded-2xl cursor-pointer"
             >
               <Link
                 href={`/locations?area=${img.value}`}
                 key={img.id}
-                className=" min-h-[350px]  rounded-2xl   "
+                className="   rounded-2xl   "
               >
                 <img
                   src={img.image}
                   alt="Post"
-                  className="w-full h-full rounded-2xl  transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full  object-cover rounded-2xl  transition-transform duration-300 group-hover:scale-110"
                 />
                 <motion.div
                   variants={{ ymotion: { y: "100%" }, hover: { y: 0 } }}
