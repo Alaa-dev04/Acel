@@ -9,7 +9,7 @@ const AddressMap = ({ mapSrc }: AddressMapProps) => {
     <div className="google-map-code">
       <iframe
         src={mapSrc}
-        className="w-full h-[721px] p-6"
+        className="w-full h-[300px] lg:h-[721px] md:h-[721px] p-6"
         style={{ border: 0 }}
         allowFullScreen
         loading="lazy"
