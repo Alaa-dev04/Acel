@@ -8,6 +8,7 @@ import FiltrationBar from "@/components/UnitFiltration";
 import Link from "next/link";
 import Card from "@/components/shared/Card";
 import Servse from "@/components/Servse";
+import { AddressMap } from "@/components/shared/Map";
 const headline = ["الموقع", "المساحة", "الوحدات"];
 const page = () => {
   const { id } = useParams<{ id: string }>();
@@ -103,7 +104,7 @@ const page = () => {
         </div>
         {/* the map */}
         <div className="flex flex-col  gap-13  ">
-          <img alt="the big map" src={project.masterPlanImage} />
+          <AddressMap mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54694.731463116346!2d31.393041122172278!3d31.042385372664107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79daec39dd347%3A0x1e86074b651b494e!2z2KfYs9iq2KfYryDYp9mE2YXZhti12YjYsdmHINin2YTYsdmK2KfYttmKINin2YTYqg!5e0!3m2!1sar!2seg!4v1794989965872!5m2!1sar!2seg" />
           <Link href="#">
             <div className="flex gap-2 justify-center items-center ">
               <p className="text-sm text-[#2563EB]">اكتشف المنطقة </p>
@@ -140,7 +141,7 @@ const page = () => {
           <p className="text-xl text-[#6F6F6F]">
             مشروعات عصرية لحياة أكثر رفاهية
           </p>
-            <Servse/>
+          <Servse />
         </div>
       </div>
     </div>

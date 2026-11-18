@@ -15,6 +15,7 @@ const images = [
 import { projects } from "@/data/projects";
 import Link from "next/link";
 import Servse from "@/components/Servse";
+import { AddressMap } from "@/components/shared/Map";
 const page = () => {
   const [area, setArea] = useQueryState(
     "area",
@@ -23,9 +24,9 @@ const page = () => {
   const selectedLocation = locations.find((location) => {
     return location.value === area;
   });
- const selectedProjects = projects.filter((project) => {
-  return project.city === selectedLocation?.label;
-});
+  const selectedProjects = projects.filter((project) => {
+    return project.city === selectedLocation?.label;
+  });
   return (
     <div className="overflow-hidden">
       <div className="relative h-screen max-h-[595px] mt-1 overflow-hidden">
@@ -85,7 +86,7 @@ const page = () => {
 
       {/* the image  */}
       <div>
-        <img alt="project map" src="/map.png" className=" w-full  p-6" />
+        <AddressMap mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54694.731463116346!2d31.393041122172278!3d31.042385372664107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79daec39dd347%3A0x1e86074b651b494e!2z2KfYs9iq2KfYryDYp9mE2YXZhti12YjYsdmHINin2YTYsdmK2KfYttmKINin2YTYqg!5e0!3m2!1sar!2seg!4v1794989965872!5m2!1sar!2seg" />
       </div>
       {/* the projects */}
       <div className="flex flex-col gap-3 p-6">
@@ -99,14 +100,13 @@ const page = () => {
           {selectedProjects
             .map((project) => (
               <Link key={project.id} href={`/projects/${project.id}`}>
-               <Card
-                status={project.status}
-                location={project.location}
-                city={project.city}
-                img={project.heroImage}
-              />
+                <Card
+                  status={project.status}
+                  location={project.location}
+                  city={project.city}
+                  img={project.heroImage}
+                />
               </Link>
-             
             ))
             .slice(0, 3)}
         </div>
@@ -119,16 +119,16 @@ const page = () => {
             أجواء تجمع بين الهدوء والرفاهية.{" "}
           </p>
         </div>
-        <Gallary images={images} />  
+        <Gallary images={images} />
       </div>
-         {/* servises  */}
-        <div className="flex  flex-col gap-5 mt-7 p-6">
-          <h2 className="text-4xl ">خدمات قريبة منك</h2>
-          <p className="text-xl text-[#6F6F6F]">
-            مشروعات عصرية لحياة أكثر رفاهية
-          </p>
-            <Servse/>
-        </div>
+      {/* servises  */}
+      <div className="flex  flex-col gap-5 mt-7 p-6">
+        <h2 className="text-4xl ">خدمات قريبة منك</h2>
+        <p className="text-xl text-[#6F6F6F]">
+          مشروعات عصرية لحياة أكثر رفاهية
+        </p>
+        <Servse />
+      </div>
     </div>
   );
 };
