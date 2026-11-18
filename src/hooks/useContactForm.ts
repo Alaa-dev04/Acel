@@ -4,7 +4,7 @@ import {
   contactShema,
   type ContactFormValues,
 } from "../shema/contact-schema";
-
+import { toast } from "sonner"
 export const useConttactForm = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactShema),
@@ -17,6 +17,8 @@ export const useConttactForm = () => {
   });
   const onSubmit = async (data: ContactFormValues) => {
     console.log(data);
+     form.reset();
+    toast.success("we will contact you later👌 ")
   };
   return {
     ...form,
